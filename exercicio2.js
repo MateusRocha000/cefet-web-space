@@ -10,25 +10,22 @@ const servidorDasImagens = 'https://fegemo.github.io/cefet-web/images/',
     'philae-collecting.jpg'
   ];
 
-let prox = document.getElementById("proximo");
-let ant = document.getElementById("anterior");
+document.getElementById("proximo").addEventListener("click", function(e) {galery(1)});
+document.getElementById("anterior").addEventListener("click", function(e) {galery(-1)});
 
-prox.addEventListener("click", galery(1));
-ant.addEventListener("click", galery(-1));
-
-ind = 0;
+let ind = 0;
 
 function galery(value)
 {
 	if(value === 1)
 	{
 		ind = (ind + value);
-		if(ind > todasAsImagens.length)
+		if(ind > 4)
 			ind = ind - todasAsImagens.length;
 	}
 	if(value === -1)
 	{
-		ind = (ind - value)
+		ind = (ind + value);
 		if(ind < 0)
 			ind = ind + todasAsImagens.length;
 	}
